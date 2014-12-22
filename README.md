@@ -1,7 +1,7 @@
 title-marquee.js
 -------------
 
-> Scrolling text in your titlebar ♫ ♪
+> Scrolling text in your browser's title ♫ ♪
 
 ### Install
 
@@ -13,12 +13,12 @@ or clone this repo.
 
 ### Usage
 
-This plugin follows the CommonJS spec, so you can require it with a
-browserify bundle.
+This plugin follows the CommonJS spec, so you can bundle and require it
+on the browser with browserify or the like.
 
 ```javascript
 <script>
-var tm = require('./node_modules/title-marquee');
+var tm = require('title-marquee');
 
 // Scroll text
 tm('Get Low - Lil Jon and the Eastside Boyz');
