@@ -1,6 +1,6 @@
 {
   "name": "title-marquee",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "stick a scrolling marquee in your page title",
   "main": "index.js",
   "scripts": {
