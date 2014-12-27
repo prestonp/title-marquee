@@ -5,7 +5,7 @@
   "main": "main.js",
   "dependencies": {
     "browserify": "^8.0.2",
-    "title-marquee": "0.0.1"
+    "title-marquee": "0.0.2"
   },
   "devDependencies": {},
   "scripts": {

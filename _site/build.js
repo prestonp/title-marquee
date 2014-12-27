@@ -28,7 +28,9 @@ var speeds = {
   'fast': 500
 };
 
-var state = {
+var state = {};
+
+var def = {
   text: '',
   buffer: 10,       // # chars shown
   type: 'scroll',   // scroll | reverse | bounce | page
@@ -36,15 +38,25 @@ var state = {
   offset: 0         // text offset
 };
 
+var getSpeed = function(speed) {
+  if (typeof speed === 'string')
+    return speeds[speed] || speeds['normal'];
+  else if (typeof speed === 'number')
+    return speed;
+  else
+    return speeds['normal'];
+};
+
 var scroll = function(opts) {
   if (typeof opts === 'string') {
-    state.text = opts;
-  } else {
-    state.text = opts.text || state.text;
-    state.speed = opts.speed || state.speed;
-    state.type = opts.type || state.type;
-    state.buffer = opts.buffer || state.buffer;
+    opts = { text: opts };
   }
+
+  state.text = opts.text || def.text;
+  state.speed = opts.speed || def.speed;
+  state.type = opts.type || def.type;
+  state.buffer = opts.buffer || def.buffer;
+  state.offset = opts.offset || def.offset;
 
   // double text, idk bout this
   state.text = state.text + ' ' + state.text;
@@ -96,7 +108,7 @@ scroll.resume = function() {
         state.offset = (state.offset + 1) % len;
         break;
     }
-  }, speeds[state.speed] || 1000);
+  }, getSpeed(state.speed));
 };
 
 scroll.toggle = function() {
